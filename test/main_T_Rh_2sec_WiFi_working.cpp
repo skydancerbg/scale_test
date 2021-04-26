@@ -6,12 +6,12 @@
 #include <ESPAsyncTCP.h>
 
 // Replace with your network credentials
-// const char *ssid = "code";
-// const char *password = "codeass123";
+const char *ssid = "code";
+const char *password = "codeass123";
 
 // Access point
-const char* ssid     = "DEMO";
-const char* password = "1234";
+// const char* ssid     = "scales";
+// const char* password = "1234";
 
 
 #define DHTPIN 4 // Digital pin 2 (GPIO 4) connected to the DHT sensor
@@ -150,24 +150,24 @@ void setup()
   // Serial port for debugging purposes
   Serial.begin(115200);
 
-  // Connect to Wi-Fi Network
-  // WiFi.begin(ssid, password);
-  // Serial.println("Connecting to WiFi");
-  // while (WiFi.status() != WL_CONNECTED)
-  // {
-  //   delay(1000);
-  //   Serial.println(".");
-  // }
-  // Serial.println(WiFi.localIP());
+  // Connect to Wi-Fi
+  WiFi.begin(ssid, password);
+  Serial.println("Connecting to WiFi");
+  while (WiFi.status() != WL_CONNECTED)
+  {
+    delay(1000);
+    Serial.println(".");
+  }
+  Serial.println(WiFi.localIP());
 
 //  Access point mode
-  // Remove the password parameter, if you want the AP (Access Point) to be open   WiFi.softAP(ssid, password);
-  Serial.print("Setting AP (Access Point)…");
-  WiFi.softAP(ssid);
-  IPAddress IP = WiFi.softAPIP();
-  Serial.print("AP IP address: ");
-  Serial.println(IP);
-  Serial.println(WiFi.localIP());
+  // Remove the password parameter, if you want the AP (Access Point) to be open
+  // Serial.print("Setting AP (Access Point)…");
+  // WiFi.softAP(ssid, password);
+  // IPAddress IP = WiFi.softAPIP();
+  // Serial.print("AP IP address: ");
+  // Serial.println(IP);
+  // Serial.println(WiFi.localIP());
 
 
   // Route for root / web page
